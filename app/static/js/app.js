@@ -98,7 +98,7 @@ function addData(latitude, longitude, altura, satelites, time, rssi, pqd) {
 }
 
 // Adiciona dados do satélite à tabela e ao mapa (satLayerGroup)
-function addSatData(latitude, longitude, altura, temperatura, umidade, pressao, satelites, time, rssi, pqd) {
+function addSatData(latitude, longitude, altura, temperatura, umidade, pressao, satelites, time, rssi) {
   addFirstPoint(latitude, longitude);
   MapSatPoint(latitude, longitude, time);
 
@@ -108,11 +108,11 @@ function addSatData(latitude, longitude, altura, temperatura, umidade, pressao, 
   content += "<td>" + latitude + "</td>";
   content += "<td>" + longitude + "</td>";
   content += "<td>" + altura + "</td>";
+  content += "<td>" + satelites + "</td>";
   content += "<td>" + temperatura + "</td>";
   content += "<td>" + umidade + "</td>";
   content += "<td>" + pressao + "</td>";
   content += "<td>" + rssi + "</td>";
-  content += "<td>" + pqd + "</td>";
   content += "</tr>";
 
   var satTable = document.getElementById("satTable");
@@ -204,12 +204,6 @@ $(document).ready(function () {
     var pqd = jsonData.pqd;
     var time = jsonData.time;
 
-    if (pqd == "1") {
-      pqd = "Sim";
-    } else {
-      pqd = "Não";
-    }
-
-    addSatData(latitude, longitude, altura, temperatura, umidade, pressao, satelites, time, rssi, pqd);
+    addSatData(latitude, longitude, altura, temperatura, umidade, pressao, satelites, time, rssi);
   });
 });

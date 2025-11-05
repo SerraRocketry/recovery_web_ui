@@ -82,7 +82,6 @@ def background_thread():
                     'umidade': umi,
                     'pressao': p,
                     'rssi': rssi,
-                    'pqd': pqd,
                     'time': now
                 })
 
